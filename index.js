@@ -10,7 +10,7 @@ const server = http.createServer((req, res) => {
   fs.appendFile("log.txt", log, (err, data) => {
     switch (newUrl.pathname) {
       case "/":
-        res.end("Home Page\n");
+        if (req.method === "GET") res.end("Home Page\n");
         break;
       case "/about/":
         const userName = newUrl.query.name;
