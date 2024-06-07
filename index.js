@@ -16,6 +16,14 @@ const server = http.createServer((req, res) => {
         const userName = newUrl.query.name;
         res.end(`hello ${userName}\n`);
         break;
+      case "/signup":
+        if (req.method === "GET") {
+          res.end("Signup Page\n");
+        } else if (req.method === "POST") {
+          // DB insert
+          res.end("Signup successful\n");
+        }
+        break;
       default:
         res.end("404 Not Found\n");
     }
